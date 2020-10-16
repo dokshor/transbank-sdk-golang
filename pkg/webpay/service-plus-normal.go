@@ -139,6 +139,17 @@ func baseGetTransactionResult(webpay *Webpay, token string) (*transbank.Transact
 		return nil, errors.New(errMsg)
 	}
 
+	// call ACK with the provided token
+	ackBodyRequest := acknowledgeTransactionBodyRequest{
+		ID:        "_0",
+		XMLnsSOAP: "http://schemas.xmlsoap.org/soap/envelope/",
+		TnsAcknowledgeTransaction: acknowledgeTransactionRequest{
+			XMLnsTns:   "http://service.wswebpay.webpay.transbank.com/",
+			TokenInput: token,
+		},
+	}
+	webpay.SOAP(ackBodyRequest)
+
 	tr := res.Body.Ns2TransactionResultResponse
 
 	return &transbank.TransactionResultResponse{
@@ -244,4 +255,18 @@ type transactionResultResponse struct {
 	TransactionDate    string   `xml:"return>transactionDate"`
 	URLRedirection     string   `xml:"return>urlRedirection"`
 	VCI                string   `xml:"return>VCI"`
+}
+
+// acknowledgeTransaction structs
+type acknowledgeTransactionBodyRequest struct {
+	XMLName                   xml.Name `xml:"soap:Body"`
+	XMLnsSOAP                 string   `xml:"xmlns:soap,attr,omitempty"`
+	ID                        string   `xml:"Id,attr,omitempty"`
+	TnsAcknowledgeTransaction acknowledgeTransactionRequest
+}
+
+type acknowledgeTransactionRequest struct {
+	XMLName    xml.Name `xml:"tns:acknowledgeTransaction"`
+	XMLnsTns   string   `xml:"xmlns:tns,attr,omitempty"`
+	TokenInput string   `xml:"tokenInput"`
 }
