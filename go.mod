@@ -1,4 +1,4 @@
-module github.com/microapis/transbank-sdk-golang
+module github.com/v1nland/transbank-sdk-golang
 
 go 1.14
 

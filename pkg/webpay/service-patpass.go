@@ -3,7 +3,7 @@ package webpay
 import (
 	"encoding/xml"
 
-	"github.com/microapis/transbank-sdk-golang"
+	"github.com/v1nland/transbank-sdk-golang"
 )
 
 const (

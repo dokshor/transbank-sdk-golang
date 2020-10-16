@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/microapis/transbank-sdk-golang/pkg/sign"
+	"github.com/v1nland/transbank-sdk-golang/pkg/sign"
 
-	"github.com/microapis/transbank-sdk-golang"
+	"github.com/v1nland/transbank-sdk-golang"
 )
 
 const (

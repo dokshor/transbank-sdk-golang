@@ -5,8 +5,8 @@ import (
 	"math/rand"
 	"strconv"
 
-	"github.com/microapis/transbank-sdk-golang"
-	"github.com/microapis/transbank-sdk-golang/pkg/webpay"
+	"github.com/v1nland/transbank-sdk-golang"
+	"github.com/v1nland/transbank-sdk-golang/pkg/webpay"
 )
 
 const (
