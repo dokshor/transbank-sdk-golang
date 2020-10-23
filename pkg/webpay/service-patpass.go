@@ -41,7 +41,7 @@ func (pp *patpass) InitTransaction(params transbank.InitTransaction) (*transbank
 	bodyRequest := patpassInitTransactionBodyRequest{
 		ID:        "_0",
 		XMLnsSOAP: "http://schemas.xmlsoap.org/soap/envelope/",
-		TnsInitTransaction: initTransactionResquest{
+		TnsInitTransaction: initTransactionRequest{
 			XMLnsTns:          "http://service.wswebpay.webpay.transbank.com/",
 			WSTransactionType: patpassTransactionType,
 			CommerceCode:      pp.webpay.GetCommerceCode(),
@@ -79,7 +79,7 @@ type patpassInitTransactionBodyRequest struct {
 	XMLName            xml.Name `xml:"soap:Body"`
 	XMLnsSOAP          string   `xml:"xmlns:soap,attr,omitempty"`
 	ID                 string   `xml:"Id,attr,omitempty"`
-	TnsInitTransaction initTransactionResquest
+	TnsInitTransaction initTransactionRequest
 }
 
 type patpassWPMDetailRequest struct {

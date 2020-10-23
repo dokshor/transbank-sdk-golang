@@ -2,6 +2,10 @@
 
 Implementación de Transbank SDK (Chile) no oficial para Golang.
 
+## Aclaración:
+
+Este repositorio es un fork de [transbank-sdk-golang](https://github.com/microapis/transbank-sdk-golang). Este repositorio incluye el método acknowledgeTransaction() de WebPay Plus normal que permite confirmar la recepción de una transacción. Este método es ejecutado automáticamente al recibir una respuesta válida del método getTransactionResult().
+
 ## Requisitos:
 
 -   Golang X.Y.Z (zero dependencies)

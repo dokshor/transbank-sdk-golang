@@ -15,7 +15,7 @@ type SoapFault struct {
 	Message string   `xml:"faultstring"`
 }
 
-type envolpeRequest struct {
+type envelopeRequest struct {
 	XMLName   xml.Name    `xml:"soap:Envelope"`
 	XMLnsSoap string      `xml:"xmlns:soap,attr"`
 	XMLnsTns  string      `xml:"xmlns:tns,attr"`
@@ -162,7 +162,7 @@ func (ds *defaultSigner) generateXMLRequest(payload interface{}) ([]byte, error)
 		},
 	}
 
-	envolpe := envolpeRequest{
+	envelope := envelopeRequest{
 		XMLnsSoap: "http://schemas.xmlsoap.org/soap/envelope/",
 		XMLnsTns:  "http://service.wswebpay.webpay.transbank.com/",
 		XMLnsXsi:  "http://www.w3.org/2001/XMLSchema-instance",
@@ -170,7 +170,7 @@ func (ds *defaultSigner) generateXMLRequest(payload interface{}) ([]byte, error)
 		Body:      payload,
 	}
 
-	parse, err := xml.Marshal(envolpe)
+	parse, err := xml.Marshal(envelope)
 	if err != nil {
 		return nil, err
 	}

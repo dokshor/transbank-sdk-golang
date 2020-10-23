@@ -63,7 +63,7 @@ func (pn *plusNormal) InitTransaction(params transbank.InitTransaction) (*transb
 	bodyRequest := initTransactionBodyRequest{
 		ID:        "_0",
 		XMLnsSOAP: "http://schemas.xmlsoap.org/soap/envelope/",
-		TnsInitTransaction: initTransactionResquest{
+		TnsInitTransaction: initTransactionRequest{
 			XMLnsTns:          "http://service.wswebpay.webpay.transbank.com/",
 			SessionID:         params.SessionID,
 			ReturnURL:         params.ReturnURL,
@@ -90,7 +90,7 @@ func baseInitTransaction(webpay *Webpay, body interface{}) (*transbank.InitTrans
 		return nil, err
 	}
 
-	res := &initTransactionEnvolpeResponse{}
+	res := &initTransactionEnvelopeResponse{}
 	err = xml.Unmarshal(b, res)
 	if err != nil {
 		return nil, err
@@ -117,7 +117,7 @@ func baseGetTransactionResult(webpay *Webpay, token string) (*transbank.Transact
 	bodyRequest := transactionResultBodyRequest{
 		ID:        "_0",
 		XMLnsSOAP: "http://schemas.xmlsoap.org/soap/envelope/",
-		TnsAcknowledgeTransaction: transactionResultResquest{
+		TnsAcknowledgeTransaction: transactionResultRequest{
 			XMLnsTns:   "http://service.wswebpay.webpay.transbank.com/",
 			TokenInput: token,
 		},
@@ -128,7 +128,7 @@ func baseGetTransactionResult(webpay *Webpay, token string) (*transbank.Transact
 		return nil, err
 	}
 
-	res := &transactionResultEnvolpeResponse{}
+	res := &transactionResultEnvelopeResponse{}
 	err = xml.Unmarshal(b, res)
 	if err != nil {
 		return nil, err
@@ -178,10 +178,10 @@ type initTransactionBodyRequest struct {
 	XMLName            xml.Name `xml:"soap:Body"`
 	XMLnsSOAP          string   `xml:"xmlns:soap,attr,omitempty"`
 	ID                 string   `xml:"Id,attr,omitempty"`
-	TnsInitTransaction initTransactionResquest
+	TnsInitTransaction initTransactionRequest
 }
 
-type initTransactionResquest struct {
+type initTransactionRequest struct {
 	XMLName           xml.Name `xml:"tns:initTransaction"`
 	XMLnsTns          string   `xml:"xmlns:tns,attr,omitempty"`
 	WSTransactionType string   `xml:"wsInitTransactionInput>wSTransactionType"`
@@ -197,7 +197,7 @@ type initTransactionResquest struct {
 	WPMDetail *patpassWPMDetailRequest `xml:"wsInitTransactionInput>wPMDetail"`
 }
 
-type initTransactionEnvolpeResponse struct {
+type initTransactionEnvelopeResponse struct {
 	XMLName xml.Name `xml:"Envelope"`
 	Body    initTransactionBodyResponse
 }
@@ -218,16 +218,16 @@ type transactionResultBodyRequest struct {
 	XMLName                   xml.Name `xml:"soap:Body"`
 	XMLnsSOAP                 string   `xml:"xmlns:soap,attr,omitempty"`
 	ID                        string   `xml:"Id,attr,omitempty"`
-	TnsAcknowledgeTransaction transactionResultResquest
+	TnsAcknowledgeTransaction transactionResultRequest
 }
 
-type transactionResultResquest struct {
+type transactionResultRequest struct {
 	XMLName    xml.Name `xml:"tns:getTransactionResult"`
 	XMLnsTns   string   `xml:"xmlns:tns,attr,omitempty"`
 	TokenInput string   `xml:"tokenInput"`
 }
 
-type transactionResultEnvolpeResponse struct {
+type transactionResultEnvelopeResponse struct {
 	XMLName xml.Name                      `xml:"Envelope"`
 	Body    transactionResultBodyResponse `xml:"Body"`
 }
