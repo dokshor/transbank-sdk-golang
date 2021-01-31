@@ -3,13 +3,13 @@ package main
 import (
 	"log"
 
-	"github.com/v1nland/transbank-sdk-golang"
-	"github.com/v1nland/transbank-sdk-golang/pkg/webpay"
+	"github.com/dokshor/transbank-sdk-golang"
+	"github.com/dokshor/transbank-sdk-golang/pkg/webpay"
 )
 
 func main() {
 	// InitTransanction base params
-	amount := float64(10000)
+	amount := int(10000)
 	sessionID := "sesion1234557545"
 	buyOrder := "ordenCompra12345678"
 	returnURL := "https://callback/resultado/de/transaccion"

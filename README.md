@@ -13,12 +13,12 @@ Este repositorio es un fork de [transbank-sdk-golang](https://github.com/microap
 # Instalación
 
 ```bash
-go get -v github.com/v1nland/transbank-sdk-golang
+go get -v github.com/dokshor/transbank-sdk-golang
 ```
 
 # Documentación
 
-Puedes ver la documentación generada en [pkg.go.dev](https://pkg.go.dev/github.com/v1nland/transbank-sdk-golang?tab=doc) para ver la implementación de la librería. También puedes consultar la [documentación oficial](https://www.transbankdevelopers.cl/documentacion/como_empezar).
+Puedes ver la documentación generada en [pkg.go.dev](https://pkg.go.dev/github.com/dokshor/transbank-sdk-golang?tab=doc) para ver la implementación de la librería. También puedes consultar la [documentación oficial](https://www.transbankdevelopers.cl/documentacion/como_empezar).
 
 # Ejemplo
 

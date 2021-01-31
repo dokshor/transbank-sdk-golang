@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/v1nland/transbank-sdk-golang/pkg/sign"
+	"github.com/dokshor/transbank/pkg/sign"
 
-	"github.com/v1nland/transbank-sdk-golang"
+	"github.com/dokshor/transbank"
 )
 
 const (
@@ -191,7 +191,7 @@ type initTransactionRequest struct {
 	BuyOrder          string   `xml:"wsInitTransactionInput>buyOrder"`
 
 	CommerceCode   int64   `xml:"wsInitTransactionInput>transactionDetails>commerceCode"`
-	Amount         float64 `xml:"wsInitTransactionInput>transactionDetails>amount"`
+	Amount         int `xml:"wsInitTransactionInput>transactionDetails>amount"`
 	DetailBuyOrder string  `xml:"wsInitTransactionInput>transactionDetails>buyOrder"`
 
 	WPMDetail *patpassWPMDetailRequest `xml:"wsInitTransactionInput>wPMDetail"`
@@ -245,7 +245,7 @@ type transactionResultResponse struct {
 	CardNumber         string   `xml:"return>cardDetail>cardNumber"`
 	CardExpirationDate string   `xml:"return>cardDetail>cardExpirationDate"`
 	SharesNumber       int      `xml:"return>detailOutput>sharesNumber"`
-	Amount             float64  `xml:"return>detailOutput>amount"`
+	Amount             int  `xml:"return>detailOutput>amount"`
 	CommerceCode       string   `xml:"return>detailOutput>commerceCode"`
 	DetailBuyOrder     string   `xml:"return>detailOutput>buyOrder"`
 	AuthorizationCode  string   `xml:"return>detailOutput>authorizationCode"`

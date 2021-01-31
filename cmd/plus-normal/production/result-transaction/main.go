@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/v1nland/transbank-sdk-golang/pkg/webpay"
+	"github.com/dokshor/transbank-sdk-golang/pkg/webpay"
 )
 
 const (

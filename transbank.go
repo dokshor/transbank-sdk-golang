@@ -20,7 +20,7 @@ type OneCLickMall interface{}
 // InitTransaction represents the "initTransactionRequest" to SOAP server webpay plus normal,
 // its the base params to use on plus services
 type InitTransaction struct {
-	Amount    float64 `json:"amount"`
+	Amount    int `json:"amount"`
 	SessionID string  `json:"session_id"`
 	ReturnURL string  `json:"return_url"`
 	FinalURL  string  `json:"final_url,omitempty"`
@@ -34,7 +34,7 @@ type InitTransaction struct {
 // Store WIP: ...
 type Store struct {
 	CommerceCode string  `json:"commerce_code"`
-	Amount       float64 `json:"amount"`
+	Amount       int `json:"amount"`
 	BuyOrder     string  `json:"buy_order"`
 }
 
@@ -79,7 +79,7 @@ type CardDetail struct {
 // DetailOutput represent transaction details values
 type DetailOutput struct {
 	SharesNumber      int     `json:"shares_number"`
-	Amount            float64 `json:"amount"`
+	Amount            int `json:"amount"`
 	CommerceCode      string  `json:"commerce_code"`
 	BuyOrder          string  `json:"buy_order"`
 	AuthorizationCode string  `json:"authorization_code"`

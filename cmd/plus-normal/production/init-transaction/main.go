@@ -5,8 +5,8 @@ import (
 	"math/rand"
 	"strconv"
 
-	"github.com/v1nland/transbank-sdk-golang"
-	"github.com/v1nland/transbank-sdk-golang/pkg/webpay"
+	"github.com/dokshor/transbank-sdk-golang"
+	"github.com/dokshor/transbank-sdk-golang/pkg/webpay"
 )
 
 const (
@@ -19,7 +19,7 @@ const (
 )
 
 func main() {
-	amount := float64(1000)
+	amount := int(1000)
 	sessionID := "mi-id-de-sesion"
 	buyOrder := strconv.Itoa(rand.Intn(99999))
 	returnURL := "https://callback/resultado/de/transaccion"
